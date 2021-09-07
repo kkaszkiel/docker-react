@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+ - docker build -t kkaszkiel/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true kkaszkiel/docker-react npm run test
